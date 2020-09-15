@@ -81,9 +81,15 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(cb1,numOfInnings){
-  return {home: cb1+numOfInnings, Away:numOfInnings-cb1}
+  function score(){
+    let scores = 0;
+    for(let i = 0; i <= numOfInnings; i++){
+      scores += cb1;
+    }
+    return scores;
+  }
   /*Code Here*/
-
+  return {'Home': score(), 'Away': score()}
 }
 console.log(finalScore(innings,9));
 /* Task 4: 
