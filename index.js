@@ -27,10 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *  - counter1 does not have any global scopes and counter2 has a global variable.
  * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *  - counter1 has a closure.
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *  - counter1 is bested used when you may want to use that function multiple times. counter2 is best used when you want the global varaible to be used for different functions.
  *
 */
 
@@ -57,10 +58,13 @@ function counter2() {
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(/*Code Here*/){
-
+  let radomNum = Math.floor(Math.random() * 3);
+  return radomNum;
     /*Code Here*/
 
 }
+const innings = inning();
+console.log(innings);
 
 /* Task 3: finalScore()
 
@@ -76,12 +80,18 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
+function finalScore(cb1,numOfInnings){
+  function score(){
+    let scores = 0;
+    for(let i = 0; i <= numOfInnings; i++){
+      scores += cb1;
+    }
+    return scores;
+  }
   /*Code Here*/
-
+  return {'Home': score(), 'Away': score()}
 }
-
+console.log(finalScore(innings,9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
